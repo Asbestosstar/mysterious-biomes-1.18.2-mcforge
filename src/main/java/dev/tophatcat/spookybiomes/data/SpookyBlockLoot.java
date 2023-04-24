@@ -20,12 +20,12 @@
  */
 package dev.tophatcat.spookybiomes.data;
 
+import javax.annotation.Nonnull;
+
 import dev.tophatcat.spookybiomes.init.SpookyBlocks;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.fmllegacy.RegistryObject;
-
-import javax.annotation.Nonnull;
+import net.minecraftforge.registries.RegistryObject;
 
 public class SpookyBlockLoot extends BlockLoot {
     protected static final float[] NORMAL_LEAVES_SAPLING_CHANCES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};

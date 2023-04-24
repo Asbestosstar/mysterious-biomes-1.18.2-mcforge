@@ -46,6 +46,7 @@ public class SpookyDataProviders {
         if (event.includeClient()) {
             generator.addProvider(new SpookyBlockStates(generator, fileHelper));
             generator.addProvider(new SpookyEnglishLanguage(generator));
+            generator.addProvider(new SpookyEspañolLanguage(generator));
         }
 
         // Server Providers

@@ -20,6 +20,11 @@
  */
 package dev.tophatcat.spookybiomes;
 
+import javax.annotation.Nonnull;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import dev.tophatcat.spookybiomes.data.SpookyDataProviders;
 import dev.tophatcat.spookybiomes.init.SpookyBiomesInjection;
 import dev.tophatcat.spookybiomes.init.SpookyBlocks;
@@ -35,10 +40,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import javax.annotation.Nonnull;
 
 @Mod(SpookyBiomes.MOD_ID)
 @EventBusSubscriber(bus = Bus.MOD)

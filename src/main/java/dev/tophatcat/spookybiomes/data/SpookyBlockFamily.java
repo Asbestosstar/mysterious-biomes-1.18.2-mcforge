@@ -20,10 +20,14 @@
  */
 package dev.tophatcat.spookybiomes.data;
 
+import java.util.Collection;
+import java.util.function.Supplier;
+
 import com.google.common.collect.ImmutableList;
+
 import dev.tophatcat.spookybiomes.common.SpookyTags;
 import dev.tophatcat.spookybiomes.init.SpookyBlocks;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
@@ -39,9 +43,6 @@ import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallSignBlock;
-
-import java.util.Collection;
-import java.util.function.Supplier;
 
 /**
  * A family of blocks for a wood type.
@@ -64,8 +65,8 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
                          Supplier<? extends RotatedPillarBlock> strippedLog,
                          Supplier<? extends LeavesBlock> leaves,
                          Supplier<? extends SaplingBlock> sapling,
-                         Tag.Named<Block> logsBlockTag,
-                         Tag.Named<Item> logsItemTag) {
+                         TagKey<Block> logsBlockTag,
+                         TagKey<Item> logsItemTag) {
     public static final SpookyBlockFamily SORBUS = new SpookyBlockFamily(
         SpookyBlocks.SORBUS_PLANKS,
         SpookyBlocks.SORBUS_SLAB, SpookyBlocks.SORBUS_STAIRS,

@@ -20,20 +20,23 @@
  */
 package dev.tophatcat.spookybiomes.data;
 
+import java.util.Arrays;
+import java.util.Set;
+import java.util.function.Supplier;
+
+import javax.annotation.Nullable;
+
 import com.google.common.collect.ImmutableSet;
+
 import dev.tophatcat.spookybiomes.SpookyBiomes;
 import dev.tophatcat.spookybiomes.init.SpookyBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
-
-import javax.annotation.Nullable;
-import java.util.Arrays;
-import java.util.Set;
-import java.util.function.Supplier;
 
 /**
  * A provider to generate the block tags.
@@ -77,22 +80,22 @@ public class SpookyBlockTags extends BlockTagsProvider {
     }
 
     @SafeVarargs
-    private void addToTag(final Tag.Named<Block> tag, final Supplier<? extends Block>... additions) {
+    private void addToTag(final TagKey<Block> tag, final Supplier<? extends Block>... additions) {
         this.addToTags(ImmutableSet.of(tag), additions);
     }
 
     @SafeVarargs
-    private void addToTags(final Set<Tag.Named<Block>> tags, final Supplier<? extends Block>... additions) {
+    private void addToTags(final Set<TagKey<Block>> tags, final Supplier<? extends Block>... additions) {
         tags.forEach(tag -> this.tag(tag).add(Arrays.stream(additions).map(Supplier::get).toArray(Block[]::new)));
     }
 
     @SafeVarargs
-    private void addToTag(final Tag.Named<Block> tag, final Tag.Named<Block>... additions) {
+    private void addToTag(final TagKey<Block> tag, final TagKey<Block>... additions) {
         this.addToTags(ImmutableSet.of(tag), additions);
     }
 
     @SafeVarargs
-    private void addToTags(final Set<Tag.Named<Block>> tags, final Tag.Named<Block>... additions) {
+    private void addToTags(final Set<TagKey<Block>> tags, final TagKey<Block>... additions) {
         tags.forEach(tag -> this.tag(tag).addTags(additions));
     }
 }

@@ -20,7 +20,12 @@
  */
 package dev.tophatcat.spookybiomes.common.generation;
 
+import java.util.Random;
+
+import javax.annotation.Nonnull;
+
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
@@ -30,15 +35,11 @@ import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
-
-import javax.annotation.Nonnull;
-import java.util.Random;
 
 public abstract class SpookyBiomesTreeGrower extends AbstractTreeGrower {
 
     @Override
-    protected ConfiguredFeature<TreeConfiguration, ?> getConfiguredFeature(Random random, boolean alternative) {
+    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(Random random, boolean alternative) {
         return null;
     }
 

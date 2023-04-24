@@ -23,9 +23,9 @@ package dev.tophatcat.spookybiomes.init;
 import dev.tophatcat.spookybiomes.SpookyBiomes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
-import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 /**
  * Register our Items to the game here.

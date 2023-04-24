@@ -20,6 +20,10 @@
  */
 package dev.tophatcat.spookybiomes.init;
 
+import static dev.tophatcat.spookybiomes.RegistrationHelpers.registerBlockAndBurnableItem;
+import static dev.tophatcat.spookybiomes.RegistrationHelpers.registerBlockAndStandardItem;
+import static dev.tophatcat.spookybiomes.init.SpookyItems.ITEMS;
+
 import dev.tophatcat.spookybiomes.SpookyBiomes;
 import dev.tophatcat.spookybiomes.common.blocks.BloodiedGrass;
 import dev.tophatcat.spookybiomes.common.blocks.SpookyLogBlock;
@@ -47,13 +51,9 @@ import net.minecraft.world.level.block.WoodButtonBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.material.Material;
-import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import static dev.tophatcat.spookybiomes.RegistrationHelpers.registerBlockAndBurnableItem;
-import static dev.tophatcat.spookybiomes.RegistrationHelpers.registerBlockAndStandardItem;
-import static dev.tophatcat.spookybiomes.init.SpookyItems.ITEMS;
+import net.minecraftforge.registries.RegistryObject;
 
 public class SpookyBlocks {
 

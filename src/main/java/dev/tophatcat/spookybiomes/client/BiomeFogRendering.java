@@ -55,15 +55,15 @@ public class BiomeFogRendering {
         int x = Mth.floor(player.getX());
         int y = Mth.floor(player.getY());
         int z = Mth.floor(player.getZ());
-        BlockState blockStateAtEyes = event.getInfo().getBlockAtCamera();
+        BlockState blockStateAtEyes = event.getCamera().getBlockAtCamera();
         if (blockStateAtEyes.getMaterial() == Material.LAVA) {
             return;
         }
         Vector3d mixedColor;
         if (blockStateAtEyes.getMaterial() == Material.WATER) {
-            mixedColor = getFogBlendColorWater(level, player, x, y, z, event.getRenderPartialTicks());
+            mixedColor = getFogBlendColorWater(level, player, x, y, z, event.getPartialTicks());
         } else {
-            mixedColor = getFogBlendColor(level, player, x, y, z, event.getRed(), event.getGreen(), event.getBlue(), event.getRenderPartialTicks());
+            mixedColor = getFogBlendColor(level, player, x, y, z, event.getRed(), event.getGreen(), event.getBlue(), event.getPartialTicks());
         }
         if (level.dimension() == Level.NETHER) {
             event.setRed((float) mixedColor.x * 20.5F);
@@ -84,7 +84,7 @@ public class BiomeFogRendering {
         int playerZ = Mth.floor(entity.getZ());
 
         if (playerX == mistX && playerZ == mistZ && mistInit) {
-            renderFog(event.getType(), mistFarPlaneDistance, 0.50f);
+            renderFog(event.getMode(), mistFarPlaneDistance, 0.50f);
             return;
         }
 
@@ -98,7 +98,7 @@ public class BiomeFogRendering {
             for (int z = -distance; z <= distance; ++z) {
                 pos.set(playerX + x, 0, playerZ + z);
                 //@Nullable IMistyBiome biome = ProxysLib.getMistyBiome(Minecraft.getInstance().getConnection().func_239165_n_().getRegistry(Registry.BIOME_KEY).getKey(level.getBiome(pos)));
-                Biome biome = level.getBiome(pos);
+                Biome biome = level.getBiome(pos).value();
                 if (Minecraft.getInstance().getConnection().registryAccess().registry(Registry.BIOME_REGISTRY).map(r -> r.getKey(biome).getNamespace().equals(SpookyBiomes.MOD_ID)).orElse(false)) {
                     float distancePart = 0.1f; //biome.getMistDensity(pos); TODO: Make dynamic
                     float weightPart = 1;
@@ -142,7 +142,7 @@ public class BiomeFogRendering {
         mistX = entity.getX();
         mistZ = entity.getZ();
         mistFarPlaneDistance = Math.min(farPlaneDistance, event.getFarPlaneDistance());
-        renderFog(event.getType(), mistFarPlaneDistance, farPlaneDistanceScale);
+        renderFog(event.getMode(), mistFarPlaneDistance, farPlaneDistanceScale);
     }
 
     private static void renderFog(FogRenderer.FogMode type, float farPlaneDistance, float farPlaneDistanceScale) {
@@ -200,7 +200,7 @@ public class BiomeFogRendering {
         for (int x = -distance; x <= distance; ++x) {
             for (int z = -distance; z <= distance; ++z) {
                 pos.set(playerX + x, 0, playerZ + z);
-                Biome biome = level.getBiome(pos);
+                Biome biome = level.getBiome(pos).value();
                 //@Nullable IMistyBiome biome = ProxysLib.getMistyBiome(Minecraft.getInstance().getConnection().func_239165_n_().getRegistry(Registry.BIOME_KEY).getKey(level.getBiome(pos)));
 
                 if (Minecraft.getInstance().getConnection().registryAccess().registry(Registry.BIOME_REGISTRY).map(r -> r.getKey(biome).getNamespace().equals(SpookyBiomes.MOD_ID)).orElse(false)) {
@@ -307,7 +307,7 @@ public class BiomeFogRendering {
         float bMixed;
         for (int weight = -distance; weight <= distance; ++weight) {
             for (int respirationLevel = -distance; respirationLevel <= distance; ++respirationLevel) {
-                Biome rMixed = level.getBiome(new BlockPos(playerX + weight, playerY + weight, playerZ + respirationLevel));
+                Biome rMixed = level.getBiome(new BlockPos(playerX + weight, playerY + weight, playerZ + respirationLevel)).value();
                 int gMixed = rMixed.getWaterColor(); //Color is stored as is now and not as a multiplier, gonna leave as is for now
                 bMixed = (float) ((gMixed & 16711680) >> 16);
                 float gPart = (float) ((gMixed & '\uff00') >> 8);
