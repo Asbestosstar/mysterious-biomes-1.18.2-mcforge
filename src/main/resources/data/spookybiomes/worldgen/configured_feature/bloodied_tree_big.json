@@ -1,4 +1,5 @@
 {
+  "type": "minecraft:tree",
   "config": {
     "decorators": [],
     "ignore_vines": true,
@@ -56,6 +57,5 @@
       "height_rand_b": 0,
       "type": "minecraft:fancy_trunk_placer"
     }
-  },
-  "type": "minecraft:tree"
+  }
 }

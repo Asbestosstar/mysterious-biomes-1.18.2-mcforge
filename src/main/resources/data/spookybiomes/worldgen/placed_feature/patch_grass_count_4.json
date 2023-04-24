@@ -1,0 +1,19 @@
+{
+    "feature": "spookybiomes:patch_grass_count_4",
+    "placement": [
+        {
+            "type": "count",
+            "count": 4
+        },
+        {
+            "type": "minecraft:in_square"
+        },
+        {
+            "type": "heightmap",
+            "heightmap": "MOTION_BLOCKING"
+        },
+        {
+            "type": "minecraft:biome"
+        }
+    ]
+}

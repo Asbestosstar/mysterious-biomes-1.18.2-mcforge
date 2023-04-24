@@ -1,0 +1,19 @@
+{
+    "feature": "spookybiomes:patch_large_fern_and_grass",
+    "placement": [
+        {
+            "type": "count",
+            "count": 6
+        },
+        {
+            "type": "minecraft:in_square"
+        },
+        {
+            "type": "heightmap",
+            "heightmap": "MOTION_BLOCKING"
+        },
+        {
+            "type": "minecraft:biome"
+        }
+    ]
+}

@@ -1,8 +1,5 @@
 {
-  "player_spawn_friendly": true,
   "category": "forest",
-  "depth": 0.05,
-  "scale": 0.65,
   "precipitation": "rain",
   "temperature": 0.25,
   "downfall": 0.9,
@@ -11,7 +8,7 @@
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000,
       "block_search_extent": 8,
-      "offset": 2.0
+      "offset": 2
     },
     "sky_color": 7511653,
     "foliage_color": 8774175,
@@ -20,7 +17,6 @@
     "water_color": 8774175,
     "water_fog_color": 8774175
   },
-  "surface_builder": "minecraft:grass",
   "carvers": {
     "air": [
       "minecraft:cave",
@@ -30,46 +26,55 @@
   "features": [
     [],
     [
-      "minecraft:lake_water",
-      "minecraft:lake_lava"
+      "minecraft:lake_lava_surface",
+      "minecraft:lake_lava_underground"
     ],
     [
       "minecraft:amethyst_geode"
     ],
     [
-      "minecraft:monster_room"
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
     ],
     [],
     [],
     [
       "minecraft:ore_dirt",
       "minecraft:ore_gravel",
-      "minecraft:ore_granite",
-      "minecraft:ore_diorite",
-      "minecraft:ore_andesite",
+      "minecraft:ore_granite_upper",
+      "minecraft:ore_granite_lower",
+      "minecraft:ore_diorite_upper",
+      "minecraft:ore_diorite_lower",
+      "minecraft:ore_andesite_upper",
+      "minecraft:ore_andesite_lower",
       "minecraft:ore_tuff",
-      "minecraft:ore_deepslate",
-      "minecraft:ore_coal",
-      "minecraft:ore_iron",
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_coal_lower",
+      "minecraft:ore_iron_upper",
+      "minecraft:ore_iron_middle",
+      "minecraft:ore_iron_small",
       "minecraft:ore_gold",
+      "minecraft:ore_gold_lower",
       "minecraft:ore_redstone",
+      "minecraft:ore_redstone_lower",
       "minecraft:ore_diamond",
+      "minecraft:ore_diamond_large",
+      "minecraft:ore_diamond_buried",
       "minecraft:ore_lapis",
+      "minecraft:ore_lapis_buried",
       "minecraft:ore_copper",
       "minecraft:disk_sand",
       "minecraft:disk_clay",
       "minecraft:disk_gravel"
     ],
+    [],
+    [],
     [
-      "minecraft:rare_dripstone_cluster",
-      "minecraft:rare_small_dripstone"
-    ],
-    [
-      "minecraft:forest_flower_vegetation",
+      "minecraft:forest_flowers",
       "minecraft:glow_lichen",
       "spookybiomes:seeping_tree_worldgen",
       "minecraft:flower_default",
-	  "spookybiomes:patch_grass_count_4",
+      "spookybiomes:patch_grass_count_4",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
@@ -81,7 +86,6 @@
       "minecraft:freeze_top_layer"
     ]
   ],
-  "starts": [],
   "creature_spawn_probability": 0.3,
   "spawn_costs": {},
   "spawners": {
